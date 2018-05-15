@@ -1,15 +1,16 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
-import typeDefs from './schema'
-import resolvers from './resolvers'
 import { makeExecutableSchema } from 'graphql-tools';
+import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+import typeDefs from './schema';
+import resolvers from './resolvers';
+
 const PORT = 8080;
 
 const schema = makeExecutableSchema({
   typeDefs,
-  resolvers
-})
+  resolvers,
+});
 const app = express();
 
 // bodyParser is needed just for POST.
