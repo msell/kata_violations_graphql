@@ -24,6 +24,6 @@ export default `
 
   type Query {
     allViolations: ViolationInfo!
-    infractions(skip: Int=0, take: Int): InfractionInfo!
+    infractions(skip: Int=0, take: Int, product: String): InfractionInfo!
   } 
 `;

@@ -14,14 +14,17 @@ export default {
         })),
       };
     },
-    infractions: async (parent, { skip, take }, ctx, info) => {
+    infractions: async (parent, { skip, take, product }, ctx, info) => {
       let url = `https://cpsc-api.herokuapp.com/api?skip=${skip}`;
       if (take) {
         url += `&take=${take}`;
       }
 
+      if (product) {
+        url += `&product=${product}`;
+      }
+
       const res = await axios.get(url);
-      console.log(res.data);
       return {
         total: res.data.total,
         violations: res.data.violations.map(x => ({
