@@ -4,7 +4,7 @@ import "./App.css";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import RootPage from './components/RootPage'
 import Detail from './components/Detail'
-
+import Layout from './components/Layout'
 class App extends Component {
   state = {
     inputValue: ""    
@@ -40,6 +40,7 @@ class App extends Component {
 
   render() {
     return (
+      <Layout>
       <div className="App">
         <Router>
           <div>
@@ -57,6 +58,7 @@ class App extends Component {
         />
 
       </div>
+      </Layout>
     );
   }
 }
