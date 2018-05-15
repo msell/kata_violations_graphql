@@ -1,3 +1,5 @@
 export default `
-  type  
+  type Query {
+    violations: String
+  } 
 `
