@@ -16,7 +16,14 @@ export default `
     total: Int!
     violations: [Violation]!
   }
+
+  type InfractionInfo {
+    total: Int!
+    violations: [Infraction]!
+  }
+
   type Query {
     allViolations: ViolationInfo!
+    infractions(skip: Int=0, take: Int): InfractionInfo!
   } 
 `;
