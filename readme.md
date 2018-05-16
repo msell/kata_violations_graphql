@@ -14,3 +14,5 @@ Run both server and client applications (from project root)
 ```
 npm start
 ```
+
+[GraphiQL explorer](http://localhost:8080/graphiql)

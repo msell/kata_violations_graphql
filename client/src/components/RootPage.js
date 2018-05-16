@@ -8,12 +8,24 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
+import { Query } from 'react-apollo'
+import getViolations from '../queries/getViolations'
 
 class RootPage extends React.Component {
   state = {ids: [{id: 4}, {id: 20}]}
   render() {
     return (
       <div><h1>Root Page</h1>
+      <Query query={getViolations}>
+        {({ loading, error, data }) => {
+          if(loading) return "Loading...";
+          if(error) return `Error! ${error.message}`
+
+          return (
+            data.allViolations.violations.map(x => <div>{x.description}</div>)
+          )
+        }}
+      </Query>
       <Table>
     <TableHeader>
       <TableRow>
