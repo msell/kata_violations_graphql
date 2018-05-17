@@ -22,7 +22,7 @@ class RootPage extends React.Component {
           if(error) return `Error! ${error.message}`
 
           return (
-            data.allViolations.violations.map(x => <div>{x.description}</div>)
+            data.allViolations.violations.map(((x, i) => (<div key={i}>{x.description}</div>)))
           )
         }}
       </Query>
@@ -64,7 +64,7 @@ class RootPage extends React.Component {
   </Table>
       <ul>
       {        
-        this.state.ids.map((x) => <li><Link to={`/${x.id}`}>Go here: {x.id}</Link></li>)
+        this.state.ids.map((x) => <li key={x.id}><Link to={`/${x.id}`}>Go here: {x.id}</Link></li>)
       }
         </ul>
     </div>

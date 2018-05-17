@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { makeExecutableSchema } from 'graphql-tools';
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+import cors from 'cors';
 import typeDefs from './schema';
 import resolvers from './resolvers';
 
@@ -12,6 +13,8 @@ const schema = makeExecutableSchema({
   resolvers,
 });
 const app = express();
+
+app.use(cors);
 
 // bodyParser is needed just for POST.
 app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
