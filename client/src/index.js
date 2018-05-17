@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ApolloClient from 'apollo-boost';
-import ApolloProvider from 'react-apollo';
+import { ApolloProvider } from 'react-apollo';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './index.css';
 import App from './App';
@@ -14,11 +14,11 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   (
-  <MuiThemeProvider>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
-  </MuiThemeProvider>
+    <MuiThemeProvider>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </MuiThemeProvider>
   ), document.getElementById('root'),
 );
 registerServiceWorker();
