@@ -4,7 +4,9 @@ export default gql`
   {
   allViolations {
     violations {
+      id
       description
+      total
     }
   }
 }`;
