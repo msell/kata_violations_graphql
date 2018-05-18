@@ -28,8 +28,8 @@ const InfractionsPage = ({ match }) => (
                     <TableHeaderColumn>Firm</TableHeaderColumn>
                   </TableHeader>
                   <TableBody displayRowCheckbox={false}>
-                    {data.infractionsById.infractions.map(x => (
-                      <TableRow>
+                    {data.infractionsById.infractions.map((x, i) => (
+                      <TableRow key={i}>
                         <TableRowColumn>{x.product}</TableRowColumn>
                         <TableRowColumn>{data.infractionsById.violation}</TableRowColumn>
                         <TableRowColumn>{x.firm}</TableRowColumn>
