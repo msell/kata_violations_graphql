@@ -19,11 +19,13 @@ export default `
 
   type InfractionInfo {
     total: Int!
-    violations: [Infraction]!
+    violation: String
+    infractions: [Infraction]!
   }
 
   type Query {
     allViolations: ViolationInfo!
     infractions(skip: Int=0, take: Int, product: String): InfractionInfo!
+    infractionsById(id: Int!): InfractionInfo!
   } 
 `;

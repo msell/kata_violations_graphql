@@ -31,5 +31,17 @@ export default {
         })),
       };
     },
+    infractionsById: async (parent, { id }, ctx, info) => {
+      const url = `https://cpsc-api.herokuapp.com/api/violation/${id}`;
+      const res = await axios.get(url);
+      return {
+        total: res.data.total,
+        violation: res.data.violation,
+        infractions: res.data.infractions.map(x => ({
+          ...x,
+          description: x.violation,
+        })),
+      };
+    },
   },
 };

@@ -20,7 +20,7 @@ class RootPage extends React.Component {
             return (
               <SelectableList>
                 {data.allViolations.violations.map(x => (
-                  <Link to={`/${x.id}`}>
+                  <Link to={`/infractions/${x.id}`}>
                     <ListItem
                       value={x.id}
                       key={x.id}
