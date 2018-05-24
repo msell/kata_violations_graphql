@@ -5,7 +5,7 @@ body {
 }
 
 .SlideIn-appear {
-  transform: translateX(30px);
+  transform: translateX(100px);
   opacity: 0;
 }
 .SlideIn-appear.SlideIn-appear-active {
@@ -15,7 +15,7 @@ body {
 }
 .SlideIn-enter {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(100px);
 }
 .SlideIn-enter.SlideIn-enter-active {
     opacity: 1;
@@ -30,6 +30,6 @@ body {
     opacity: 0;
     position: absolute;
     width: 100%;
-    transform: translateX(-30px);
+    transform: translateX(-100px);
     transition: all 0.2s linear;
 }

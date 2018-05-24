@@ -1,9 +1,12 @@
 import React from 'react';
+import Animate from './Animate';
 
 const About = () => (
-  <div>
-    <h1>About</h1>
-  </div>
+  <Animate>
+    <div>
+      <h1>About</h1>
+    </div>
+  </Animate>
 );
 
 export default About;

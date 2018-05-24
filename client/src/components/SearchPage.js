@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Animate from './Animate'
 class SearchPage extends React.Component {
   state = {
     inputValue: ""
@@ -35,6 +35,7 @@ class SearchPage extends React.Component {
   
   render() {
     return (
+      <Animate>
       <div>
         <h1>Search</h1>
         <input
@@ -43,6 +44,7 @@ class SearchPage extends React.Component {
           onKeyUp={this.handleKeyUp}
         />
       </div>
+      </Animate>
     );
   }
 }

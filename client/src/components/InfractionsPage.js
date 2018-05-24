@@ -8,8 +8,7 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
+import Animate from './Animate';
 import getInfractions from '../queries/getInfractions';
 
 const InfractionsPage = ({ match }) => (
@@ -20,13 +19,8 @@ const InfractionsPage = ({ match }) => (
             if (error) return `Error! ${error.message}`;
 
             return (
-              <ReactCSSTransitionGroup
-                transitionAppear
-                transitionAppearTimeout={600}
-                transitionEnterTimeout={600}
-                transitionLeaveTimeout={200}
-                transitionName="SlideIn"
-              >
+
+              <Animate>
                 <div>
                   <h1>{data.infractionsById.violation}</h1>
                   <Table>
@@ -47,7 +41,7 @@ const InfractionsPage = ({ match }) => (
                   </Table>
 
                 </div>
-              </ReactCSSTransitionGroup>
+              </Animate>
 
             );
           }
