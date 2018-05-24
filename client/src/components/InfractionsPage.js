@@ -8,6 +8,7 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import getInfractions from '../queries/getInfractions';
 
@@ -19,26 +20,35 @@ const InfractionsPage = ({ match }) => (
             if (error) return `Error! ${error.message}`;
 
             return (
-              <div>
-                <h1>{data.infractionsById.violation}</h1>
-                <Table>
-                  <TableHeader displaySelectAll={false}>
-                    <TableHeaderColumn>Product</TableHeaderColumn>
-                    <TableHeaderColumn>Violation</TableHeaderColumn>
-                    <TableHeaderColumn>Firm</TableHeaderColumn>
-                  </TableHeader>
-                  <TableBody displayRowCheckbox={false}>
-                    {data.infractionsById.infractions.map((x, i) => (
-                      <TableRow key={i}>
-                        <TableRowColumn>{x.product}</TableRowColumn>
-                        <TableRowColumn>{data.infractionsById.violation}</TableRowColumn>
-                        <TableRowColumn>{x.firm}</TableRowColumn>
-                      </TableRow>
+              <ReactCSSTransitionGroup
+                transitionAppear
+                transitionAppearTimeout={600}
+                transitionEnterTimeout={600}
+                transitionLeaveTimeout={200}
+                transitionName="SlideIn"
+              >
+                <div>
+                  <h1>{data.infractionsById.violation}</h1>
+                  <Table>
+                    <TableHeader displaySelectAll={false}>
+                      <TableHeaderColumn>Product</TableHeaderColumn>
+                      <TableHeaderColumn>Violation</TableHeaderColumn>
+                      <TableHeaderColumn>Firm</TableHeaderColumn>
+                    </TableHeader>
+                    <TableBody displayRowCheckbox={false}>
+                      {data.infractionsById.infractions.map((x, i) => (
+                        <TableRow key={i}>
+                          <TableRowColumn>{x.product}</TableRowColumn>
+                          <TableRowColumn>{data.infractionsById.violation}</TableRowColumn>
+                          <TableRowColumn>{x.firm}</TableRowColumn>
+                        </TableRow>
                     ))}
-                  </TableBody>
-                </Table>
+                    </TableBody>
+                  </Table>
 
-              </div>
+                </div>
+              </ReactCSSTransitionGroup>
+
             );
           }
 
